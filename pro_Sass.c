@@ -58,6 +58,22 @@ void ajouter(){
 		taille++;
 		printf("Ajouter avec succes");
 	}
+void afficher(){
+		if(taille==0){
+		printf("vous devez selectioner 'ajouter' pour accelerer aux autres options\n");
+		}else{
+		int i;
+		for(i=0;i<taille;i++){
+			printf("--------Tache : %d --------\n\n",i+1);
+			printf("le titre est :%s\n",ts[i].titre);
+			printf("la description est :%s\n",ts[i].description);
+			printf("la preorite est :%s\n",ts[i].preorite);
+			printf("le jour est :%d\n",ts[i].date.jour);
+			printf("le mois est :%d\n",ts[i].date.mois);
+			printf("l'annee est :%d\n",ts[i].date.annee);
+		}
+	}
+}
 int main(){
 int choix;
 	printf("\n \t \t\t\t\t\t\t\t !!Application de taches !! \n");
@@ -69,11 +85,12 @@ int choix;
 	
 	switch(choix){
 		case 1: ajouter();break;
-		case 2: printf("Au Revoir !");break;
+		case 2: afficher();break;
+		case 3: printf("Au Revoir !");break;
 		default: printf("Choix invalid !");
 	}
 		
-	}while (choix!=2 );
+	}while (choix!=3 );
 
 
 
