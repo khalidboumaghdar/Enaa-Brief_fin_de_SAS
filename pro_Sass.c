@@ -108,6 +108,25 @@ void afficher(){
 		}
 	}
 		}
+void Supprimer(){
+		if(taille==0){
+			printf("vous devez selectioner 'ajouter' pour accelerer aux autres options\n");
+		}else{
+int indice,i;
+printf("Enter indice qui veux supprimer :");
+scanf("%d",&indice);
+	if(indice<0 || indice>taille){
+			printf("indice invalide !");
+		}else{
+for(i=indice;i<taille;i++){
+	ts[i]=ts[i+1];
+}
+taille--;
+printf("suppresion avec succes");
+}
+
+}
+}
 void menu(){
 	printf(" \n\n\n => Menu <= \n");
 	printf(" \n1- Ajouter une Tache  \n");
@@ -130,11 +149,12 @@ int choix;
 		case 1: ajouter();break;
 		case 2: afficher();break;
 		case 3: modifier();break;
-		case 4: printf("Au Revoir !");break;
+                case 4: Supprimer();break;
+		case 5: printf("Au Revoir !");break;
 		default: printf("Choix invalid !");
 	}
 		
-	}while (choix!=4 );
+	}while (choix!=5 );
 
 
 
