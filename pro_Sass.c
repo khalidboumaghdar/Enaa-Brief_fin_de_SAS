@@ -74,6 +74,49 @@ void afficher(){
 		}
 	}
 }
+	void modifier(){
+			if(taille==0){
+			printf("vous devez selectioner 'ajouter' pour accelerer aux autres options\n");
+		}else{
+		int indice;
+		printf("Enter indice :");
+		scanf("%d",&indice);
+		if(indice<0 || indice>taille){
+			printf("indice invalide !");
+		}else{
+				printf("Entrer le nouveau titre (actuel: %s) : ",ts[indice].titre);
+		scanf("%s",ts[indice].titre);
+		printf("Entrer la nouvelle desrcription (actuel: %s) : ",ts[indice].description);
+		scanf("%s",ts[indice].description);
+		int choix;
+		do{
+			printf("entrer preorite (1- high  2-low) : ");
+			scanf("%d",&choix);
+			switch(choix){
+				case 1 :strcpy(ts[indice].preorite,"high");break;
+				case 2 :strcpy(ts[indice].preorite,"low");break;
+				default:printf("erreur!!");
+			}
+		}while(choix!=1 && choix!=2);
+		printf("Entrer le nouveau jour (actuel: %d) : ",ts[indice].date.jour);
+		scanf("%d",&ts[indice].date.jour);
+		printf("Entrer le nouveau mois (actuel: %d) : ",ts[indice].date.mois);
+		scanf("%d",&ts[indice].date.mois);
+		printf("Entrer le nouvelle (actuel: %d) : ",ts[indice].date.annee);
+		scanf("%d",&ts[indice].date.annee);
+			printf("modification avec succes");
+		}
+	}
+		}
+void menu(){
+	printf(" \n\n\n => Menu <= \n");
+	printf(" \n1- Ajouter une Tache  \n");
+	printf(" \n2- Afficher la Liste des Taches \n");
+	printf(" \n3- Modifier une Tachee \n");
+	printf(" \n4- Supprimer une Tache \n");
+	printf(" \n5- Filtrer les Taches  \n");
+	printf(" \n6- Quitter. \n");
+}
 int main(){
 int choix;
 	printf("\n \t \t\t\t\t\t\t\t !!Application de taches !! \n");
@@ -86,11 +129,12 @@ int choix;
 	switch(choix){
 		case 1: ajouter();break;
 		case 2: afficher();break;
-		case 3: printf("Au Revoir !");break;
+		case 3: modifier();break;
+		case 4: printf("Au Revoir !");break;
 		default: printf("Choix invalid !");
 	}
 		
-	}while (choix!=3 );
+	}while (choix!=4 );
 
 
 
