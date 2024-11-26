@@ -127,6 +127,28 @@ printf("suppresion avec succes");
 
 }
 }
+void filtrer(){
+		if(taille==0){
+		printf("vous devez selectioner 'ajouter' pour accelerer aux autres options\n");
+		}else{
+	int i;
+	char filter[6];
+
+	for(i=0;i<taille;i++){
+		if(strcmp(ts[i].preorite,filter)==0){
+		printf("le titre est :%s\n",ts[i].titre);
+		printf("la description est :%s\n",ts[i].description);
+		printf("la preorite est :%s\n",ts[i].preorite);
+		printf("le jour est :%d\n",ts[i].date.jour);
+		printf("le mois est :%d\n",ts[i].date.mois);
+		printf("l'annee est :%d\n",ts[i].date.annee);
+		printf("les titres filtrés sont : %s",ts[i].titre);
+		}else{
+			printf("Aucune preorite trouvee!!");
+		}
+	}
+}
+}
 void menu(){
 	printf(" \n\n\n => Menu <= \n");
 	printf(" \n1- Ajouter une Tache  \n");
@@ -150,11 +172,12 @@ int choix;
 		case 2: afficher();break;
 		case 3: modifier();break;
                 case 4: Supprimer();break;
-		case 5: printf("Au Revoir !");break;
+		case 5: filtrer();break;
+		case 6: printf("Au Revoir !");break;
 		default: printf("Choix invalid !");
 	}
 		
-	}while (choix!=5 );
+	}while (choix!=6 );
 
 
 
